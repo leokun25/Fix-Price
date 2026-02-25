@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import "./globals.css";
 import { GlobalSearchBar } from "@/components/GlobalSearchBar";
+import { NavigationLoader } from "@/components/NavigationLoader";
 
 export const metadata: Metadata = {
   title: "料金表 | Square 商品",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="min-h-screen antialiased">
+        <NavigationLoader />
         <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-4 py-3 dark:border-slate-700 dark:bg-slate-900/95">
           <div className="mx-auto max-w-6xl space-y-2">
             {/* 1行目: ホーム / 管理画面 */}
