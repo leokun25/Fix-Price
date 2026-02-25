@@ -18,22 +18,26 @@ export default function RootLayout({
     <html lang="ja">
       <body className="min-h-screen antialiased">
         <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 px-4 py-3 dark:border-slate-700 dark:bg-slate-900/95">
-          <div className="mx-auto flex max-w-6xl items-center gap-4">
-            <Link
-              href="/"
-              className="shrink-0 rounded-lg bg-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-            >
-              ホーム
-            </Link>
-            <Suspense fallback={<div className="h-9 flex-1 max-w-md" />}>
+          <div className="mx-auto max-w-6xl space-y-2">
+            {/* 1行目: ホーム / 管理画面 */}
+            <div className="flex items-center justify-between gap-2">
+              <Link
+                href="/"
+                className="rounded-lg bg-slate-200 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+              >
+                ホーム
+              </Link>
+              <Link
+                href="/admin"
+                className="rounded-lg bg-slate-200 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
+              >
+                管理画面
+              </Link>
+            </div>
+            {/* 2行目: 検索バー（全幅） */}
+            <Suspense fallback={<div className="h-10 w-full rounded-lg bg-slate-100 dark:bg-slate-800" />}>
               <GlobalSearchBar />
             </Suspense>
-            <Link
-              href="/admin"
-              className="shrink-0 rounded-lg bg-slate-200 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
-            >
-              管理画面
-            </Link>
           </div>
         </header>
         {children}
